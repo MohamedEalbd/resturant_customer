@@ -169,9 +169,7 @@ class _MyAppState extends State<MyApp> {
                       fallbackLocale: Locale(
                           AppConstants.languages[0].languageCode!,
                           AppConstants.languages[0].countryCode),
-                      initialRoute: GetPlatform.isWeb
-                          ? RouteHelper.getInitialRoute()
-                          : RouteHelper.getSplashRoute(
+                      initialRoute:RouteHelper.getSplashRoute(
                               widget.body, widget.linkBody),
                       getPages: RouteHelper.routes,
                       defaultTransition: Transition.topLevel,

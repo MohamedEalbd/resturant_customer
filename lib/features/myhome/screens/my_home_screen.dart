@@ -530,7 +530,7 @@ class MyHomeScreen extends StatelessWidget {
             ),
             SizedBox(height: 8.h),
             SizedBox(
-              height: 100.h,
+              height: 110.h,
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: controller.popularFoodsNearby.length,
@@ -612,7 +612,7 @@ class MyHomeScreen extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  "\$ ${controller.popularFoodsNearby[index].salary}"
+                                  "${controller.popularFoodsNearby[index].salary} SAR"
                                       .toString(),
                                   style: TextStyle(
                                     fontFamily: "Inter",

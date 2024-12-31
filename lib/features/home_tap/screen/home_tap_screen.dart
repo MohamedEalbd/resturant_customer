@@ -37,14 +37,16 @@ class HomeTapScreen extends StatelessWidget {
                 int i = index > 2 ? index - 1 : index;
                 return index == 2
                     ? const Spacer()
-                    : CustomButtonAppBar(
-                        active: controller.currentPage == i ? true : false,
-                        onPressed: () {
-                          controller.chanPage(i);
-                        },
-                        icon: controller.words[i]['icon'],
-                        text: controller.words[i]['title'],
-                      );
+                    : Expanded(
+                      child: CustomButtonAppBar(
+                          active: controller.currentPage == i ? true : false,
+                          onPressed: () {
+                            controller.chanPage(i);
+                          },
+                          icon: controller.words[i]['icon'],
+                          text: controller.words[i]['title'],
+                        ),
+                    );
               }),
             ],
           ),

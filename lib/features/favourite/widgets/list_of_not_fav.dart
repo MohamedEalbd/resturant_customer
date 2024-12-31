@@ -117,7 +117,7 @@ class ListOfNotFav extends StatelessWidget {
                         ),
                         SizedBox(height: 6.5.h),
                         Text(
-                          "\$${foods[index].price}",
+                          "${foods[index].price} SAR",
                           style: TextStyle(
                             fontSize: 12.sp,
                             fontWeight: FontWeight.w600,

@@ -185,7 +185,7 @@ class MyOrderDetails extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "\$ 250.00",
+                            "250.00 SAR",
                             style: TextStyle(
                               fontFamily: "Inter",
                               fontSize: 14.sp,

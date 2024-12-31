@@ -83,141 +83,143 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           centerTitle: true,
         ),
-        body: Column(
-          children: [
-            SizedBox(height: 23.5.h),
-            Container(
-              height: 120.h,
-              width: 390.w,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.1),
-              ),
-              child: Container(
-                height: 56.h,
-                width: 358.w,
-                child: Row(
-                  children: [
-                    Image.asset(Images.profile),
-                    SizedBox(width: 10.w),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "",
-                          style: TextStyle(
-                            fontFamily: "Inter",
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xff1E1E1E),
+        body: SingleChildScrollView(
+          child: Column( 
+            children: [
+              SizedBox(height: 23.5.h),
+              Container(
+                height: 120.h,
+                width: 390.w,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.grey.withOpacity(0.1),
+                ),
+                child: Container(
+                  height: 56.h,
+                  width: 358.w,
+                  child: Row(
+                    children: [
+                      Image.asset(Images.profile),
+                      SizedBox(width: 10.w),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "",
+                            style: TextStyle(
+                              fontFamily: "Inter",
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w600,
+                              color: Color(0xff1E1E1E),
+                            ),
                           ),
-                        ),
-                        Text(
-                          "19 aug 2024 23:21",
-                          style: TextStyle(
-                            fontFamily: "Inter",
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w500,
-                            color: Color(0xff1E1E1E),
+                          Text(
+                            "19 aug 2024 23:21",
+                            style: TextStyle(
+                              fontFamily: "Inter",
+                              fontSize: 12.sp,
+                              fontWeight: FontWeight.w500,
+                              color: Color(0xff1E1E1E),
+                            ),
                           ),
+                        ],
+                      ),
+                      Spacer(),
+                      Container(
+                        alignment: Alignment.center,
+                        height: 32.h,
+                        width: 32.w,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25.r),
+                          color: Colors.white,
                         ),
-                      ],
-                    ),
-                    Spacer(),
-                    Container(
-                      alignment: Alignment.center,
-                      height: 32.h,
-                      width: 32.w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25.r),
-                        color: Colors.white,
+                        child: Icon(
+                          Icons.edit,
+                          weight: 16.67.w,
+                          //size: 16.67.w,
+                          color: Color(0xff1E1E1E),
+                        ),
                       ),
-                      child: Icon(
-                        Icons.edit,
-                        weight: 16.67.w,
-                        //size: 16.67.w,
-                        color: Color(0xff1E1E1E),
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: 32.h),
-            GestureDetector(
-              onTap: () {
-                Get.to(() => AddressScreen());
-              },
-              child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 16.w),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    CustomCard(
-                      title: '107',
-                      subTitle: 'loyalty profile',
-                      image: Images.star,
-                    ),
-                    SizedBox(width: 14.w),
-                    CustomCard(
-                      title: '3',
-                      subTitle: 'total order',
-                      image: Images.bag,
-                    ),
-                    SizedBox(width: 14.w),
-                    CustomCard(
-                      title: '\$ 0.00',
-                      subTitle: 'wallet balance',
-                      image: Images.bag2,
-                    ),
-                  ],
+              SizedBox(height: 32.h),
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => AddressScreen());
+                },
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CustomCard(
+                        title: '107',
+                        subTitle: 'loyalty profile',
+                        image: Images.star,
+                      ),
+                      SizedBox(width: 14.w),
+                      CustomCard(
+                        title: '3',
+                        subTitle: 'total order',
+                        image: Images.bag,
+                      ),
+                      SizedBox(width: 14.w),
+                      CustomCard(
+                        title: '\$ 0.00',
+                        subTitle: 'wallet balance',
+                        image: Images.bag2,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: 32.h),
-            CustomListTile(
-              title: "Dark mode",
-              image: Images.theme,
-              widget: Switch(
-                activeTrackColor: Color(0xff7C0631),
-                inactiveThumbColor: Colors.white,
-                inactiveTrackColor: Color(0xff7C0631).withOpacity(0.5),
-                value: controller.switchOne,
-                onChanged: (value) {
-                  controller.useSwitchOne(value);
-                },
+              SizedBox(height: 32.h),
+              CustomListTile(
+                title: "Dark mode",
+                image: Images.theme,
+                widget: Switch(
+                  activeTrackColor: Color(0xff7C0631),
+                  inactiveThumbColor: Colors.white,
+                  inactiveTrackColor: Color(0xff7C0631).withOpacity(0.5),
+                  value: controller.switchOne,
+                  onChanged: (value) {
+                    controller.useSwitchOne(value);
+                  },
+                ),
               ),
-            ),
-            SizedBox(height: 12.h),
-            CustomListTile(
-              title: "Notifications",
-              icon: Icons.notifications,
-              widget: Switch(
-                activeTrackColor: Color(0xff7C0631),
-                inactiveThumbColor: Colors.white,
-                inactiveTrackColor: Color(0xff7C0631).withOpacity(0.5),
-                value: controller.switchTwo,
-                onChanged: (value) {
-                  controller.useSwitchTwo(value);
-                },
+              SizedBox(height: 12.h),
+              CustomListTile(
+                title: "Notifications",
+                icon: Icons.notifications,
+                widget: Switch(
+                  activeTrackColor: Color(0xff7C0631),
+                  inactiveThumbColor: Colors.white,
+                  inactiveTrackColor: Color(0xff7C0631).withOpacity(0.5),
+                  value: controller.switchTwo,
+                  onChanged: (value) {
+                    controller.useSwitchTwo(value);
+                  },
+                ),
               ),
-            ),
-            SizedBox(height: 12.h),
-            CustomListTile(
-              title: "change password",
-              icon: Icons.lock,
-            ),
-            SizedBox(height: 12.h),
-            CustomListTile(
-              title: "Edit Profile",
-              icon: Icons.edit,
-            ),
-            SizedBox(height: 12.h),
-            CustomListTile(
-              title: "Delete Account",
-              icon: Icons.delete,
-            ),
-          ],
+              SizedBox(height: 12.h),
+              CustomListTile(
+                title: "change password",
+                icon: Icons.lock,
+              ),
+              SizedBox(height: 12.h),
+              CustomListTile(
+                title: "Edit Profile",
+                icon: Icons.edit,
+              ),
+              SizedBox(height: 12.h),
+              CustomListTile(
+                title: "Delete Account",
+                icon: Icons.delete,
+              ),
+            ],
+          ),
         ),
       ),
     );
