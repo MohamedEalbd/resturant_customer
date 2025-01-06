@@ -361,4 +361,27 @@ class Images {
   static const String my_location = "assets/image/my_location.png";
   static const String myHouse = "assets/image/home.png";
   static const String mypizza_order = "assets/image/mypizza_order.png";
+  static const String notifications = "assets/icons/notifications.svg";
+  static const String notification = "assets/icons/notification.svg";
+  static const String notifications2 = "assets/image/notifications.png";
+  static const String icon_chat_p = "assets/image/icon_chat_p.png";
+  static const String icon_chat = "assets/icons/icon_chat.svg";
+
+  static const String imageChat = "assets/icons/image.svg";
+  static const String callIcon = "assets/icons/call.svg";
+  static const String locationIcon = "assets/icons/location.svg";
+  static const String locationIcon2 = "assets/image/locations.png";
+  static const String callIcon2 = "assets/image/call_icon.png";
+  static const String sendChat = "assets/icons/send.svg";
+  static const String imageChat2 = "assets/image/image.png";
+  static const String logoFoods = "assets/image/logo_foods.png";
+  static const String logoFood = "assets/image/logo_food.png";
+  static const String details_Res = "assets/image/details_res.png";
+  static const String details2 = "assets/image/details2.png";
+  static const String details3 = "assets/image/details3.png";
+  static const String details4 = "assets/image/details4.png";
+  static const String sendChat2 = "assets/image/send.png";
+  static const String friends = "assets/image/friends.png";
+  static const String friends2 = "assets/icons/friends.svg";
+  static const String foodDetails = "assets/image/food_details.png";
 }

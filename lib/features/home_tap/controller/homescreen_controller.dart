@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:stackfood_multivendor/features/favourite/screens/favourite_screen.dart';
 import 'package:stackfood_multivendor/features/myhome/screens/my_home_screen.dart';
-import 'package:stackfood_multivendor/features/settings/screens/settings_screen.dart';
 
 import '../../order/screens/order_screen.dart';
 import '../../profile/screens/profile_screen.dart';
@@ -23,7 +21,6 @@ class HomeScreenControllerImp extends HomeScreenController {
     MyHomeScreen(),
     FavouriteScreen(),
     OrderScreen(),
-    //Center(child: Text("locked")),
     ProfileScreen(),
   ];
 
@@ -33,6 +30,7 @@ class HomeScreenControllerImp extends HomeScreenController {
     {"title": "Locked", "icon": Icons.lock},
     {"title": "settings", "icon": Icons.view_headline},
   ];
+  
   @override
   chanPage(int i) {
     currentPage = i;

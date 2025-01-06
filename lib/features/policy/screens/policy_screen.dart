@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:stackfood_multivendor/features/chat/screens/chat_screen.dart';
+import 'package:stackfood_multivendor/features/chat/screens/conversation_screen.dart';
+import 'package:stackfood_multivendor/features/help/screens/help_screen.dart';
 import 'package:stackfood_multivendor/features/profile/widgets/custom_title.dart';
 import 'package:stackfood_multivendor/features/profile/widgets/info_card.dart';
+import 'package:stackfood_multivendor/features/refer%20and%20earn/screens/refer_and_earn_screen.dart';
 import 'package:stackfood_multivendor/util/images.dart';
 
 class PolicyScreen extends StatelessWidget {
@@ -54,13 +60,30 @@ class PolicyScreen extends StatelessWidget {
           SizedBox(height: 8.h),
           CustomTitle(title: "Earnings"),
           SizedBox(height: 16.h),
-          InfoCard(title: 'Refer & Earn'),
+          GestureDetector(
+            child: InfoCard(
+              title: 'Refer & Earn',
+              onTap: () {
+                Get.to(() => ReferAndEarnScreen());
+              },
+            ),
+          ),
           InfoCard(title: 'Open A Resturant'),
           SizedBox(height: 24.h),
           CustomTitle(title: "Help & Support"),
           SizedBox(height: 16.h),
-          InfoCard(title: 'Live Chat'),
-          InfoCard(title: 'Help & Support'),
+          InfoCard(
+            title: 'Live Chat',
+            onTap: () {
+              Get.to(() => ConversationScreen());
+            },
+          ),
+          InfoCard(
+            title: 'Help & Support',
+            onTap: () {
+              Get.to(() => HelpScreen());
+            },
+          ),
           InfoCard(title: 'About Us'),
           InfoCard(title: 'Terms & Conditions'),
           InfoCard(title: 'Privacy Policy'),

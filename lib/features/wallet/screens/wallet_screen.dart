@@ -1,4 +1,6 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:stackfood_multivendor/common/widgets/custom_title_appbar.dart';
+import 'package:stackfood_multivendor/common/widgets/custum_leading.dart';
 import 'package:stackfood_multivendor/features/auth/controllers/auth_controller.dart';
 import 'package:stackfood_multivendor/features/loyalty/screens/loyalty_screen.dart';
 import 'package:stackfood_multivendor/features/profile/controllers/profile_controller.dart';
@@ -120,292 +122,282 @@ class _WalletScreenState extends State<WalletScreen> {
   Widget build(BuildContext context) {
     bool isLoggedIn = Get.find<AuthController>().isLoggedIn();
     return
-    // PopScope(
-      // canPop: widget.fromNotification ? Navigator.canPop(context) : false,
-      // onPopInvokedWithResult: (didPop, result) async {
-      //   if (widget.fromNotification) {
-      //     if (widget.fromNotification) {
-      //       Get.offAllNamed(RouteHelper.getInitialRoute());
-      //     } else {
-      //       return;
-      //     }
-      //   } else {
-      //     if (widget.fromMenuPage) {
-      //       Future.delayed(const Duration(milliseconds: 10), () {
-      //         Get.back();
-      //       });
-      //     } else {
-      //       Future.delayed(const Duration(milliseconds: 10), () {
-      //         Get.offAllNamed(RouteHelper.getInitialRoute());
-      //       });
-      //     }
-      //   }
-      // },
-      //child:
-       Scaffold(
-        //backgroundColor: Theme.of(context).cardColor,
-        // appBar: CustomAppBarWidget(title: 'wallet'.tr, isBackButtonExist: true, onBackPressed: (){
-        //   if(widget.fromNotification) {
-        //     if(widget.fromNotification) {
+        // PopScope(
+        // canPop: widget.fromNotification ? Navigator.canPop(context) : false,
+        // onPopInvokedWithResult: (didPop, result) async {
+        //   if (widget.fromNotification) {
+        //     if (widget.fromNotification) {
         //       Get.offAllNamed(RouteHelper.getInitialRoute());
-        //     }else {
-        //       Get.back();
+        //     } else {
+        //       return;
         //     }
-        //   }else {
-        //     if(widget.fromMenuPage){
+        //   } else {
+        //     if (widget.fromMenuPage) {
         //       Future.delayed(const Duration(milliseconds: 10), () {
         //         Get.back();
         //       });
-        //     }else{
+        //     } else {
         //       Future.delayed(const Duration(milliseconds: 10), () {
         //         Get.offAllNamed(RouteHelper.getInitialRoute());
         //       });
         //     }
         //   }
-        // }),
-        // endDrawer: const MenuDrawerWidget(), endDrawerEnableOpenDragGesture: false,
-        // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {},
-            icon: Image.asset(Images.arrowLeft1),
-          ),
-          title: Text(
-            "Wallet".tr,
-            style: TextStyle(
-              fontFamily: "Inter",
-              fontSize: 14.sp,
-              fontWeight: FontWeight.w600,
-              color: Color(0xff1E1E1E),
-            ),
-          ),
-          centerTitle: true,
-        ),
-        body: Container(
-          margin: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Column(
-            children: [
-              Container(
-                alignment: Alignment.center,
-                padding: EdgeInsets.only(
-                  top: 24.h,
-                  right: 16.w,
-                  bottom: 24.h,
-                  left: 16.w,
-                ),
-                height: 104.h,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.r),
-                  color: Color(0xff7C0631),
-                ),
-                child: Row(
-                  children: [
-                    Image.asset(
-                      Images.pounds,
-                      height: 56.h,
-                      width: 56.w,
-                    ),
-                    SizedBox(width: 16.h),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          "wallet amount",
-                          style: TextStyle(
-                            fontFamily: "Inter",
-                            fontSize: 10.sp,
-                            fontWeight: FontWeight.w400,
-                            color: Colors.white,
-                          ),
-                        ),
-                        Text(
-                          "\$ 16.00",
-                          style: TextStyle(
-                            fontFamily: "Inter",
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+        // },
+        //child:
+        Scaffold(
+      //backgroundColor: Theme.of(context).cardColor,
+      // appBar: CustomAppBarWidget(title: 'wallet'.tr, isBackButtonExist: true, onBackPressed: (){
+      //   if(widget.fromNotification) {
+      //     if(widget.fromNotification) {
+      //       Get.offAllNamed(RouteHelper.getInitialRoute());
+      //     }else {
+      //       Get.back();
+      //     }
+      //   }else {
+      //     if(widget.fromMenuPage){
+      //       Future.delayed(const Duration(milliseconds: 10), () {
+      //         Get.back();
+      //       });
+      //     }else{
+      //       Future.delayed(const Duration(milliseconds: 10), () {
+      //         Get.offAllNamed(RouteHelper.getInitialRoute());
+      //       });
+      //     }
+      //   }
+      // }),
+      // endDrawer: const MenuDrawerWidget(), endDrawerEnableOpenDragGesture: false,
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      appBar: AppBar(
+        leading: CustomLeading(),
+        title: CustomTitleAppBar(title: "Wallet".tr),
+        centerTitle: true,
+      ),
+      body: Container(
+        margin: EdgeInsets.symmetric(horizontal: 16.w),
+        child: Column(
+          children: [
+            Container(
+              alignment: Alignment.center,
+              padding: EdgeInsets.only(
+                top: 24.h,
+                right: 16.w,
+                bottom: 24.h,
+                left: 16.w,
               ),
-              SizedBox(height: 28.h),
-              Align(
-                alignment: Alignment.topLeft,
-                child: Text(
-                  "Transaction History",
-                  style: TextStyle(
-                    fontFamily: "Inter",
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w400,
-                    color: Color(0xff000000),
+              height: 104.h,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.r),
+                color: Color(0xff7C0631),
+              ),
+              child: Row(
+                children: [
+                  Image.asset(
+                    Images.pounds,
+                    height: 56.h,
+                    width: 56.w,
                   ),
+                  SizedBox(width: 16.h),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "wallet amount",
+                        style: TextStyle(
+                          fontFamily: "Inter",
+                          fontSize: 10.sp,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        "\$ 16.00",
+                        style: TextStyle(
+                          fontFamily: "Inter",
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 28.h),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                "Transaction History",
+                style: TextStyle(
+                  fontFamily: "Inter",
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w400,
+                  color: Color(0xff000000),
                 ),
               ),
-              SizedBox(height: 16.h),
-              Expanded(
-                child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: 3,
-                    itemBuilder: (_, index) {
-                      return GestureDetector(
-                          onTap: () {
-                            Get.to(() => LoyaltyScreen());
-                          },
-                          child: MyCard());
-                    }),
-              )
-            ],
-          ),
+            ),
+            SizedBox(height: 16.h),
+            Expanded(
+              child: ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: 3,
+                  itemBuilder: (_, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        Get.to(() => LoyaltyScreen());
+                      },
+                      child: MyCard(),
+                    );
+                  }),
+            )
+          ],
         ),
-        // GetBuilder<ProfileController>(builder: (profileController) {
-        //   return isLoggedIn
-        //       ? profileController.userInfoModel != null
-        //           ? SafeArea(
-        //               child: RefreshIndicator(
-        //                 onRefresh: () async {
-        //                   Get.find<WalletController>()
-        //                       .setWalletFilerType('all');
-        //                   Get.find<WalletController>()
-        //                       .getWalletTransactionList('1', true, 'all');
-        //                   Get.find<ProfileController>().getUserInfo();
-        //                 },
-        //                 child: SingleChildScrollView(
-        //                   controller: scrollController,
-        //                   child: Column(
-        //                     children: [
-        //                       WebScreenTitleWidget(title: 'wallet'.tr),
-        //                       FooterViewWidget(
-        //                         child: SizedBox(
-        //                           width: Dimensions.webMaxWidth,
-        //                           child: GetBuilder<WalletController>(
-        //                               builder: (walletController) {
-        //                             return ResponsiveHelper.isDesktop(context)
-        //                                 ? Padding(
-        //                                     padding: const EdgeInsets.only(
-        //                                         top: Dimensions
-        //                                             .paddingSizeDefault),
-        //                                     child: Row(
-        //                                         crossAxisAlignment:
-        //                                             CrossAxisAlignment.start,
-        //                                         children: [
-        //                                           Expanded(
-        //                                               flex: 4,
-        //                                               child: Column(
-        //                                                 children: [
-        //                                                   Container(
-        //                                                     decoration: ResponsiveHelper
-        //                                                             .isDesktop(
-        //                                                                 context)
-        //                                                         ? BoxDecoration(
-        //                                                             color: Theme.of(
-        //                                                                     context)
-        //                                                                 .cardColor,
-        //                                                             borderRadius:
-        //                                                                 BorderRadius.circular(
-        //                                                                     Dimensions.radiusSmall),
-        //                                                             boxShadow: [
-        //                                                               BoxShadow(
-        //                                                                   color: Colors.grey.withOpacity(
-        //                                                                       0.1),
-        //                                                                   spreadRadius:
-        //                                                                       1,
-        //                                                                   blurRadius:
-        //                                                                       10,
-        //                                                                   offset: const Offset(
-        //                                                                       0,
-        //                                                                       1))
-        //                                                             ],
-        //                                                           )
-        //                                                         : null,
-        //                                                     padding:
-        //                                                         const EdgeInsets
-        //                                                             .all(
-        //                                                             Dimensions
-        //                                                                 .paddingSizeLarge),
-        //                                                     child: WalletCardWidget(
-        //                                                         tooltipController:
-        //                                                             tooltipController),
-        //                                                   ),
-        //                                                 ],
-        //                                               )),
-        //                                           const SizedBox(
-        //                                               width: Dimensions
-        //                                                   .paddingSizeDefault),
-        //                                           Expanded(
-        //                                               flex: 6,
-        //                                               child: Column(children: [
-        //                                                 const WebBonusBannerViewWidget(),
-        //                                                 Container(
-        //                                                   decoration:
-        //                                                       ResponsiveHelper
-        //                                                               .isDesktop(
-        //                                                                   context)
-        //                                                           ? BoxDecoration(
-        //                                                               color: Theme.of(
-        //                                                                       context)
-        //                                                                   .cardColor,
-        //                                                               borderRadius:
-        //                                                                   BorderRadius.circular(
-        //                                                                       Dimensions.radiusSmall),
-        //                                                               boxShadow: [
-        //                                                                 BoxShadow(
-        //                                                                     color: Colors.grey.withOpacity(
-        //                                                                         0.1),
-        //                                                                     spreadRadius:
-        //                                                                         1,
-        //                                                                     blurRadius:
-        //                                                                         10,
-        //                                                                     offset:
-        //                                                                         const Offset(0, 1))
-        //                                                               ],
-        //                                                             )
-        //                                                           : null,
-        //                                                   padding: const EdgeInsets
-        //                                                       .all(Dimensions
-        //                                                           .paddingSizeLarge),
-        //                                                   child:
-        //                                                       const WalletHistoryWidget(),
-        //                                                 ),
-        //                                               ])),
-        //                                         ]),
-        //                                   )
-        //                                 : Column(children: [
-        //                                     Padding(
-        //                                       padding:
-        //                                           const EdgeInsets.symmetric(
-        //                                               horizontal: Dimensions
-        //                                                   .paddingSizeLarge),
-        //                                       child: WalletCardWidget(
-        //                                           tooltipController:
-        //                                               tooltipController),
-        //                                     ),
-        //                                     const BonusBannerWidget(),
-        //                                     const Padding(
-        //                                       padding: EdgeInsets.symmetric(
-        //                                           horizontal: Dimensions
-        //                                               .paddingSizeLarge),
-        //                                       child: WalletHistoryWidget(),
-        //                                     )
-        //                                   ]);
-        //                           }),
-        //                         ),
-        //                       )
-        //                     ],
-        //                   ),
-        //                 ),
-        //               ),
-        //             )
-        //           : const Center(child: CircularProgressIndicator())
-        //       : NotLoggedInScreen(callBack: (value) {
-        //           _initCall();
-        //           setState(() {});
-        //         });
-        // }),
+      ),
+      // GetBuilder<ProfileController>(builder: (profileController) {
+      //   return isLoggedIn
+      //       ? profileController.userInfoModel != null
+      //           ? SafeArea(
+      //               child: RefreshIndicator(
+      //                 onRefresh: () async {
+      //                   Get.find<WalletController>()
+      //                       .setWalletFilerType('all');
+      //                   Get.find<WalletController>()
+      //                       .getWalletTransactionList('1', true, 'all');
+      //                   Get.find<ProfileController>().getUserInfo();
+      //                 },
+      //                 child: SingleChildScrollView(
+      //                   controller: scrollController,
+      //                   child: Column(
+      //                     children: [
+      //                       WebScreenTitleWidget(title: 'wallet'.tr),
+      //                       FooterViewWidget(
+      //                         child: SizedBox(
+      //                           width: Dimensions.webMaxWidth,
+      //                           child: GetBuilder<WalletController>(
+      //                               builder: (walletController) {
+      //                             return ResponsiveHelper.isDesktop(context)
+      //                                 ? Padding(
+      //                                     padding: const EdgeInsets.only(
+      //                                         top: Dimensions
+      //                                             .paddingSizeDefault),
+      //                                     child: Row(
+      //                                         crossAxisAlignment:
+      //                                             CrossAxisAlignment.start,
+      //                                         children: [
+      //                                           Expanded(
+      //                                               flex: 4,
+      //                                               child: Column(
+      //                                                 children: [
+      //                                                   Container(
+      //                                                     decoration: ResponsiveHelper
+      //                                                             .isDesktop(
+      //                                                                 context)
+      //                                                         ? BoxDecoration(
+      //                                                             color: Theme.of(
+      //                                                                     context)
+      //                                                                 .cardColor,
+      //                                                             borderRadius:
+      //                                                                 BorderRadius.circular(
+      //                                                                     Dimensions.radiusSmall),
+      //                                                             boxShadow: [
+      //                                                               BoxShadow(
+      //                                                                   color: Colors.grey.withOpacity(
+      //                                                                       0.1),
+      //                                                                   spreadRadius:
+      //                                                                       1,
+      //                                                                   blurRadius:
+      //                                                                       10,
+      //                                                                   offset: const Offset(
+      //                                                                       0,
+      //                                                                       1))
+      //                                                             ],
+      //                                                           )
+      //                                                         : null,
+      //                                                     padding:
+      //                                                         const EdgeInsets
+      //                                                             .all(
+      //                                                             Dimensions
+      //                                                                 .paddingSizeLarge),
+      //                                                     child: WalletCardWidget(
+      //                                                         tooltipController:
+      //                                                             tooltipController),
+      //                                                   ),
+      //                                                 ],
+      //                                               )),
+      //                                           const SizedBox(
+      //                                               width: Dimensions
+      //                                                   .paddingSizeDefault),
+      //                                           Expanded(
+      //                                               flex: 6,
+      //                                               child: Column(children: [
+      //                                                 const WebBonusBannerViewWidget(),
+      //                                                 Container(
+      //                                                   decoration:
+      //                                                       ResponsiveHelper
+      //                                                               .isDesktop(
+      //                                                                   context)
+      //                                                           ? BoxDecoration(
+      //                                                               color: Theme.of(
+      //                                                                       context)
+      //                                                                   .cardColor,
+      //                                                               borderRadius:
+      //                                                                   BorderRadius.circular(
+      //                                                                       Dimensions.radiusSmall),
+      //                                                               boxShadow: [
+      //                                                                 BoxShadow(
+      //                                                                     color: Colors.grey.withOpacity(
+      //                                                                         0.1),
+      //                                                                     spreadRadius:
+      //                                                                         1,
+      //                                                                     blurRadius:
+      //                                                                         10,
+      //                                                                     offset:
+      //                                                                         const Offset(0, 1))
+      //                                                               ],
+      //                                                             )
+      //                                                           : null,
+      //                                                   padding: const EdgeInsets
+      //                                                       .all(Dimensions
+      //                                                           .paddingSizeLarge),
+      //                                                   child:
+      //                                                       const WalletHistoryWidget(),
+      //                                                 ),
+      //                                               ])),
+      //                                         ]),
+      //                                   )
+      //                                 : Column(children: [
+      //                                     Padding(
+      //                                       padding:
+      //                                           const EdgeInsets.symmetric(
+      //                                               horizontal: Dimensions
+      //                                                   .paddingSizeLarge),
+      //                                       child: WalletCardWidget(
+      //                                           tooltipController:
+      //                                               tooltipController),
+      //                                     ),
+      //                                     const BonusBannerWidget(),
+      //                                     const Padding(
+      //                                       padding: EdgeInsets.symmetric(
+      //                                           horizontal: Dimensions
+      //                                               .paddingSizeLarge),
+      //                                       child: WalletHistoryWidget(),
+      //                                     )
+      //                                   ]);
+      //                           }),
+      //                         ),
+      //                       )
+      //                     ],
+      //                   ),
+      //                 ),
+      //               ),
+      //             )
+      //           : const Center(child: CircularProgressIndicator())
+      //       : NotLoggedInScreen(callBack: (value) {
+      //           _initCall();
+      //           setState(() {});
+      //         });
+      // }),
       //),
     );
   }

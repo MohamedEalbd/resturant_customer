@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:stackfood_multivendor/common/classes/text_style.dart';
 import 'package:stackfood_multivendor/features/auth/widgets/text_field_register.dart';
 import 'package:stackfood_multivendor/features/myhome/controller/myhome_controller.dart';
 import 'package:stackfood_multivendor/features/myhome/widgets/custom_text.dart';
+import 'package:stackfood_multivendor/features/notification/screens/notification_screen.dart';
+import 'package:stackfood_multivendor/features/restaurant/screens/details_restaurant_screen.dart';
 import 'package:stackfood_multivendor/util/images.dart';
 
 class MyHomeScreen extends StatelessWidget {
@@ -25,17 +28,19 @@ class MyHomeScreen extends StatelessWidget {
               SizedBox(width: 8.w),
               Text(
                 '6th of october, giza'.tr,
-                style: TextStyle(
-                    fontFamily: "Inter",
-                    fontSize: 13.sp,
-                    fontWeight: FontWeight.w500,
+                style: AppTextStyle.textStyle(
+
+                    appFontSize: 13.sp,
+                    appFontWeight: FontWeight.w500,
                     color: Color(0xff1E1E1E)),
               ),
             ],
           ),
           actions: [
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.to(() => NotificationScreen());
+              },
               child: Padding(
                 padding: EdgeInsets.only(right: 10.w),
                 child: Image.asset(Images.bell),
@@ -106,6 +111,7 @@ class MyHomeScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 44.h),
+            //! categories
             Padding(
               padding: EdgeInsets.only(right: 14.6.w),
               child: Row(
@@ -158,6 +164,7 @@ class MyHomeScreen extends StatelessWidget {
                   }),
             ),
             SizedBox(height: 16.h),
+            //! Trending Food Offers
             Align(
               alignment: Alignment.centerLeft,
               child: CustomText(text: "Trending Food Offers".tr),
@@ -333,6 +340,8 @@ class MyHomeScreen extends StatelessWidget {
                   }),
             ),
             SizedBox(height: 24.h),
+
+            //* navigate here to details to restaurant
             Padding(
               padding: EdgeInsets.only(right: 14.6.w),
               child: Row(
@@ -362,84 +371,89 @@ class MyHomeScreen extends StatelessWidget {
                       crossAxisSpacing: 16,
                       mainAxisSpacing: 8),
                   itemBuilder: (_, index) {
-                    return Stack(
-                      //alignment: Alignment.topCenter,
-                      children: [
-                        Container(
-                          height: 137.h,
-                          alignment: Alignment.bottomCenter,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10.r),
-                            image: DecorationImage(
-                              image: AssetImage(
-                                controller.bestRestaurants[index].imageUrl!,
+                    return GestureDetector(
+                      onTap: () {
+                        Get.to(() => DetailsRestaurantScreen());
+                      },
+                      child: Stack(
+                        //alignment: Alignment.topCenter,
+                        children: [
+                          Container(
+                            height: 137.h,
+                            alignment: Alignment.bottomCenter,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.r),
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  controller.bestRestaurants[index].imageUrl!,
+                                ),
+                              ),
+                            ),
+                            child: Container(
+                              height: 65,
+                              alignment: Alignment.centerLeft,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 8.w, vertical: 8.h),
+                              decoration: BoxDecoration(
+                                color: Colors.grey.withOpacity(0.2),
+                              ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Text(
+                                    "${controller.popularFoodsNearby[index].type}",
+                                    style: TextStyle(
+                                      fontFamily: "Inter",
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  Text(
+                                    "${controller.popularFoodsNearby[index].name}",
+                                    style: TextStyle(
+                                      fontFamily: "Inter",
+                                      fontSize: 10.sp,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          ...List.generate(5, (index) {
+                                            return Icon(
+                                              Icons.star,
+                                              color: Colors.yellow,
+                                              size: 10.sp,
+                                            );
+                                          })
+                                        ],
+                                      ),
+                                      Text(
+                                        "${controller.popularFoodsNearby[index].rate}",
+                                        style: TextStyle(
+                                          fontFamily: "Inter",
+                                          fontSize: 10.sp,
+                                          fontWeight: FontWeight.w400,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
                           ),
-                          child: Container(
-                            height: 65,
-                            alignment: Alignment.centerLeft,
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 8.w, vertical: 8.h),
-                            decoration: BoxDecoration(
-                              color: Colors.grey.withOpacity(0.2),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Text(
-                                  "${controller.popularFoodsNearby[index].type}",
-                                  style: TextStyle(
-                                    fontFamily: "Inter",
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Text(
-                                  "${controller.popularFoodsNearby[index].name}",
-                                  style: TextStyle(
-                                    fontFamily: "Inter",
-                                    fontSize: 10.sp,
-                                    fontWeight: FontWeight.w400,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Row(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        ...List.generate(5, (index) {
-                                          return Icon(
-                                            Icons.star,
-                                            color: Colors.yellow,
-                                            size: 10.sp,
-                                          );
-                                        })
-                                      ],
-                                    ),
-                                    Text(
-                                      "${controller.popularFoodsNearby[index].rate}",
-                                      style: TextStyle(
-                                        fontFamily: "Inter",
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w400,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
+                          Positioned(
+                            right: 15.w,
+                            top: 10.h,
+                            child: Image.asset(Images.fav_border),
                           ),
-                        ),
-                        Positioned(
-                          right: 15.w,
-                          top: 10.h,
-                          child: Image.asset(Images.fav_border),
-                        ),
-                      ],
+                        ],
+                      ),
                     );
                   }),
             ),
@@ -511,6 +525,7 @@ class MyHomeScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 24.h),
+            //* navigate to the details foods */
             Padding(
               padding: EdgeInsets.only(right: 16.w),
               child: Row(
@@ -614,14 +629,13 @@ class MyHomeScreen extends StatelessWidget {
                                 Text(
                                   "${controller.popularFoodsNearby[index].salary} SAR"
                                       .toString(),
-                                  style: TextStyle(
-                                    fontFamily: "Inter",
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.w600,
+                                  style: AppTextStyle.textStyle(
+                                    appFontSize: 12.sp,
+                                    appFontWeight: FontWeight.w600,
                                     color: Color(0xff1E1E1E),
                                   ),
                                 ),
-                                SizedBox(width: 100),
+                                SizedBox(width: 80.w),
                                 Container(
                                   alignment: Alignment.center,
                                   padding: EdgeInsets.symmetric(
@@ -636,7 +650,7 @@ class MyHomeScreen extends StatelessWidget {
                                     Images.iconAdd,
                                     color: Colors.white,
                                   ),
-                                )
+                                ),
                               ],
                             ),
                           ],
@@ -649,8 +663,6 @@ class MyHomeScreen extends StatelessWidget {
                     SizedBox(width: 16),
               ),
             ),
-            //#00000040
-            //box-shadow: 0px 0px 4px 0px #00000040;
             SizedBox(height: 50),
           ],
         ),

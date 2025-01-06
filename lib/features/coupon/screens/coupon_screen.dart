@@ -1,5 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:just_the_tooltip/just_the_tooltip.dart';
+import 'package:stackfood_multivendor/common/widgets/custom_title_appbar.dart';
+import 'package:stackfood_multivendor/common/widgets/custum_leading.dart';
 import 'package:stackfood_multivendor/features/auth/controllers/auth_controller.dart';
 import 'package:stackfood_multivendor/features/coupon/controllers/coupon_controller.dart';
 import 'package:stackfood_multivendor/features/coupon/widgets/coupon_card_widget.dart';
@@ -59,19 +61,8 @@ class _CouponScreenState extends State<CouponScreen> {
     _isLoggedIn = Get.find<AuthController>().isLoggedIn();
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {},
-          icon: Image.asset(Images.arrowLeft1),
-        ),
-        title: Text(
-          "Coupon".tr,
-          style: TextStyle(
-            fontFamily: "Inter",
-            fontSize: 14.sp,
-            fontWeight: FontWeight.w600,
-            color: Color(0xff1E1E1E),
-          ),
-        ),
+        leading:CustomLeading(),
+        title:CustomTitleAppBar(title:"Coupon"),
         centerTitle: true,
       ),
       body: Container(

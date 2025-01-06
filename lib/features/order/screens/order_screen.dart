@@ -60,7 +60,7 @@ class OrderScreenState extends State<OrderScreen>
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w600,
                 color: Color(0xff1E1E1E)),
-          ),
+          ), 
         ),
         body: Column(
           children: [

@@ -33,6 +33,14 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:universal_html/html.dart' as html;
 
+
+class MyCheckOutController    extends GetxController {
+  int isSelected = 0;
+  void selectRadio(int radio){
+    isSelected = radio;
+    update();
+  }
+}
 class CheckoutController extends GetxController implements GetxService {
   final CheckoutServiceInterface checkoutServiceInterface;
   CheckoutController({required this.checkoutServiceInterface});

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:stackfood_multivendor/features/chat/domain/models/chat_model.dart';
 import 'package:stackfood_multivendor/features/notification/domain/models/notification_body_model.dart';
 import 'package:stackfood_multivendor/features/profile/controllers/profile_controller.dart';
 import 'package:stackfood_multivendor/features/splash/controllers/splash_controller.dart';
@@ -20,8 +21,63 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:stackfood_multivendor/util/app_constants.dart';
 import 'package:http/http.dart' as http;
+import 'package:stackfood_multivendor/util/images.dart';
 import 'package:universal_html/html.dart' as html;
 
+
+ class MyChatController extends GetxController{
+List<ChatModel> chats = [
+    ChatModel(
+      id: 1,
+      message: '',
+      image:  Images.icon_chat_p,
+      date: '00:05 | 24 july 2024',
+      isMe: true,
+      name: "Osama",
+    ),
+    ChatModel(
+      id: 1,
+      message: '',
+      image:  Images.icon_chat_p,
+      date: '00:05 | 24 july 2024',
+      isMe: false,
+      name: "restaurant name",
+    ),
+    ChatModel(
+      id: 1,
+      message: '',
+      image:  Images.icon_chat_p,
+      date: '00:05 | 24 july 2024',
+      isMe: true,
+      name: "Osama",
+    ),
+    ChatModel(
+      id: 1,
+      message: '',
+      image:  Images.icon_chat_p,
+      date: '00:05 | 24 july 2024',
+      isMe: false,
+      name: "restaurant name",
+    ),
+    ChatModel(
+      id: 1,
+      message: '',
+      image:  Images.icon_chat_p,
+      date: '00:05 | 24 july 2024',
+      isMe: true,
+      name: "Osama",
+    ),
+    ChatModel(
+      id: 1,
+      message: '',
+      image:  Images.icon_chat_p,
+      date: '00:05 | 24 july 2024',
+      isMe: false,
+      name: "restaurant name",
+    ),
+  ];
+  
+ }
 class ChatController extends GetxController implements GetxService {
   final ChatServiceInterface chatServiceInterface;
   ChatController({required this.chatServiceInterface});

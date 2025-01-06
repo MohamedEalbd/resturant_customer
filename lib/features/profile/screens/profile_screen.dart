@@ -5,6 +5,7 @@ import 'package:stackfood_multivendor/common/widgets/custom_button_widget.dart';
 import 'package:stackfood_multivendor/features/address/screens/address_screen.dart';
 import 'package:stackfood_multivendor/features/auth/controllers/auth_controller.dart';
 import 'package:stackfood_multivendor/features/order/controllers/order_controller.dart';
+import 'package:stackfood_multivendor/features/policy/screens/policy_screen.dart';
 import 'package:stackfood_multivendor/features/profile/controllers/profile_controller.dart';
 import 'package:stackfood_multivendor/features/profile/widgets/account_deletion_bottom_sheet.dart';
 import 'package:stackfood_multivendor/features/profile/widgets/customCard.dart';
@@ -84,7 +85,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           centerTitle: true,
         ),
         body: SingleChildScrollView(
-          child: Column( 
+          child: Column(
             children: [
               SizedBox(height: 23.5.h),
               Container(
@@ -147,7 +148,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(height: 32.h),
               GestureDetector(
                 onTap: () {
-                  Get.to(() => AddressScreen());
+                  //if(){}
+                  //Get.to(() => AddressScreen());
+                  Get.to(() => PolicyScreen());
                 },
                 child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 16.w),

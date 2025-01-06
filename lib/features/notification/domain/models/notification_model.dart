@@ -3,6 +3,7 @@ class NotificationModel {
   Data? data;
   String? createdAt;
   String? updatedAt;
+  String? orderName;
   String? imageFullUrl;
 
   NotificationModel({
@@ -11,6 +12,7 @@ class NotificationModel {
     this.createdAt,
     this.updatedAt,
     this.imageFullUrl,
+    this.orderName,
   });
 
   NotificationModel.fromJson(Map<String, dynamic> json) {

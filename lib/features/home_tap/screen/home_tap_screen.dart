@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_state.dart';
+import 'package:stackfood_multivendor/features/cart/screens/cart_screen.dart';
 import 'package:stackfood_multivendor/features/home_tap/controller/homescreen_controller.dart';
 import 'package:stackfood_multivendor/features/home_tap/widgets/custom_appBar.dart';
 import 'package:stackfood_multivendor/features/home_tap/widgets/exit_daialog.dart';
@@ -18,9 +19,9 @@ class HomeTapScreen extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.white,
           shape: const CircleBorder(),
-          child: Image.asset(Images.myCart),
+          child: Image.asset(Images.myCart), 
           onPressed: () {
-            //controller.goToCart();
+            Get.to(()=>CartScreen(fromNav: false));
           },
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
